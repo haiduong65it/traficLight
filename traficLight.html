@@ -217,32 +217,23 @@
     </div> 
     <script>
         var timer;
-        var timeRed;
-        var timeGreen;
-        var timeGreenOther;
-        var timeRedOther;
-            // j = -1;
-        var time_1;
-        var time_2;
+        var timeRed = 15;
+        var timeGreen = 20;
+        var timeGreenOther = 12;
+        var timeRedOther = 23;
+        var time_1 = 20;
+        var time_2 = 23;
         var color_1 = "green";
         var color_2 = "red";
 
         function submit() { //hàm lấy dữ liệu thời gian đèn xanh đỏ
             timeRed = document.getElementById("red").value;
             timeGreen = document.getElementById("green").value;
-            timeGreenOther = Number(timeRed) - 4;
-            timeRedOther = Number(timeGreen) + 4;
+            timeGreenOther = Number(timeRed) - 3;
+            timeRedOther = Number(timeGreen) + 3;
             time_1 = Number(timeGreen);
             time_2 = Number(timeRedOther);
-            console.log(timeGreenOther, timeRedOther);
-            // console.log(timeRed);
-            // timeRed = document.getElementById("red").value();
         }
-        
-        var time_1 = Number(timeGreen);
-        var time_2 = Number(timeRedOther);
-
-        console.log(time_1);
 
         function light_1(color) { //hàm đổi màu 1 4
             var green_1=document.getElementsByClassName("green_1");
@@ -298,70 +289,13 @@
                 }
             }   
         }
-            // green.style.opacity=1;
-        //     setTimeout(function () {
-        //         for (i = 0; i < green.length; i++) {
-        //             green[i].style.opacity = .1;
-        //             red[i].style.opacity=.1;
-        //             yellow[i].style.opacity=1;
-        //         }
-        //         // green.style.opacity=.3;
-        //         // red.style.opacity=.3;
-        //         // yellow.style.opacity=1;
-        //         time = timeYellow;
-        //         color = "yellow";
-        //         setInterval(myTimer, 1000, time, color);
-        //     },timeYellow*1000);
-    
-        //     setTimeout(function () {
-        //         for (i = 0; i < green.length; i++) {
-        //             green[i].style.opacity = .1;
-        //             red[i].style.opacity=1;
-        //             yellow[i].style.opacity=.1;
-        //         }
-        //         time = timeRed;
-        //         color = "red";
-        //         setInterval(myTimer, 1000, time, color);
-        //     },timeRed*1000);
-    
-        //     setTimeout(function () {
-        //         for (i = 0; i < green.length; i++) {
-        //             green[i].style.opacity = 1;
-        //             red[i].style.opacity=.1;
-        //             yellow[i].style.opacity=.1;
-        //         }
-        //         time = timeGreen;
-        //         color = "green";
-        //         setInterval(myTimer, 1000, time, color);
-        //     },timeGreen*1000);
-        //     setInterval(myTimer, 1000, time, color);
-        // }
-    
-        // var timer=setInterval(function () {
-        //     startTrafficSignal();
-        // },(timeRed+timeGreen+timeYellow)*1000);
-        // function myTimer() {
-        //     time -=1;
-        //     if (time >= 0) {
-        //         document.getElementById("timeLight1").innerHTML = time;
-        //         document.getElementById("timeLight4").innerHTML = time;
-        //     }
-        //     else
-        //     {
-        //         time = 10;
-        //         document.getElementById("timeLight1").innerHTML = time;
-        //         document.getElementById("timeLight4").innerHTML = time;
-        //         light();
-        //     }
-        // }
-        // light();
         
         
         function timeLight() {//hàm thời gian giảm dần theo đèn
             
             let templeColor_1 = color_1;
             let templeColor_2 = color_2;
-            if (time_1 >= 0) {
+            if (time_1 > 0) {
                 document.getElementById("timeLight1").innerHTML = time_1;
                 document.getElementById("timeLight4").innerHTML = time_1;
             }
@@ -387,7 +321,7 @@
                 light_1(templeColor_1);
                 color_1 = templeColor_1;
             }
-            if (time_2 >= 0) {
+            if (time_2 > 0) {
                 document.getElementById("timeLight2").innerHTML = time_2;
                 document.getElementById("timeLight3").innerHTML = time_2;
             }
@@ -423,9 +357,9 @@
 
         function end() {
             clearInterval(timer);
+            time_1 = Number(timeGreen);
+            time_2 = Number(timeRedOther);
         }
-
-        // var timer = setInterval(timeLight, 1000);
     </script>
 </body> 
   
